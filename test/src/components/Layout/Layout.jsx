@@ -6,7 +6,10 @@ const Layout = () => {
   return (
     <div>
       <NavBar/>
+      <div className="container-fluid">
+
       <Outlet></Outlet>
+      </div>
       <Footer/>
     </div>
   );
