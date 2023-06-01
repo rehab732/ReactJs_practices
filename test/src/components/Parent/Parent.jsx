@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import Child from '../Child/Child';
+
 class Parent extends Component {
 
+constructor()
+{
+  console.log("Constructor called");
+  super();
+}
 
+componentDidMount()
+  {
+      console.log("Component did mount");
+  }
 
+  componentDidUpdate()
+  {
+    console.log("Component did update");
+  }
   // state={
   //   productName:"Pro Name",
   //   productPrice:"$100.00",
@@ -43,6 +57,7 @@ class Parent extends Component {
   }  
 
   render() {
+    console.log("Render called");
     return (
       <>
       <div className="container bg-dark py-2">
@@ -53,7 +68,7 @@ class Parent extends Component {
         <Child productInfo={this.state.products[2]} />
         <Child productInfo={this.state.products[3]} /> */}
 
-        {this.state.products.map((product)=> <Child proInfo={product} delete={this.deleteproduct} update={this.updateProduct} />)}
+        {this.state.products.map((product)=> <Child key={product.id} proInfo={product} delete={this.deleteproduct} update={this.updateProduct} />)}
 
         </div>
       </div>

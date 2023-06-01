@@ -4,7 +4,7 @@ class Child extends Component {
   render() {
     // let { id, name, count } = this.props.CompProduct;
     let{id,name,count,onSale,category}=this.props.proInfo;
-console.log(this.props);
+// console.log(this.props);
     return (
       <>
         {/* <h1>Chiled Comp</h1> */}
