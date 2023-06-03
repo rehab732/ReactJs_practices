@@ -6,6 +6,8 @@ import Parent from "./components/Parent/Parent";
 import NotFound from "./components/NotFound/NotFound";
 import Contacts from "./components/Contacts/Contacts";
 import Test from "./components/Test/Test";
+import Countercontextprovider, { Countercontext } from "./components/Context/CounterStore";
+
 let routers=createBrowserRouter([
   {path:"/",element:<Layout/>,children:[
     {index:true,element:<Home/>},
@@ -24,7 +26,10 @@ export class App extends Component{
   render() {
     return (
       <>
+      <Countercontextprovider>
+
       <RouterProvider router={routers}></RouterProvider>
+      </Countercontextprovider>
       {/* <div className="container">
         <div className="row">
           <div className="col-md-6">

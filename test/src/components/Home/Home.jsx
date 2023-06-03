@@ -1,5 +1,7 @@
 
+import { useContext } from "react";
 import useCustom from "../../Hooks/UseCustom";
+import { countercontext } from "../Context/CounterStore";
 export default function Home() {
   // const [count,setCount] = useState(0);
 
@@ -23,10 +25,12 @@ export default function Home() {
   // }, []);
 
   let {trendingmovies}=useCustom();
-
+let{countt}=useContext(countercontext)
   return (
     <>
       <div className="row">
+
+        <h1>couter context :{countt}</h1>
         {trendingmovies.length>0? trendingmovies.map((movie, index) => 
           <div key={index} className="col-md-3">
             <div className="movie">
