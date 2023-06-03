@@ -36,6 +36,11 @@ const NavBar = () => {
                   Parent
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="gall">
+                  Contacts
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

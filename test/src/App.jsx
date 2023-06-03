@@ -4,11 +4,13 @@ import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
 import Parent from "./components/Parent/Parent";
 import NotFound from "./components/NotFound/NotFound";
+import Contacts from "./components/Contacts/Contacts";
 let routers=createBrowserRouter([
   {path:"/",element:<Layout/>,children:[
     {index:true,element:<Home/>},
     {path:"about",element:<About/>},
     {path:"parent",element:<Parent/>},
+    {path:"gall",element:<Contacts/>},
     {path:"*",element:<NotFound/>},
 
 
