@@ -41,6 +41,11 @@ const NavBar = () => {
                   Contacts
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="test">
+                  Use CallBack
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
