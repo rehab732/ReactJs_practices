@@ -1,12 +1,29 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Joi from "joi";
 
 const Register = () => {
+  let navigate = useNavigate();
+  const [errorList,setError]=useState([]);
   const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
+    first_name:'',
+    last_name: '',
     age: 0,
+    email:'',
     password: "",
   });
+
+  function UserValidation() {
+    let schema = Joi.object({
+      // first_name: Joi.string().min(3).max(10).required(),
+      // last_name: Joi.string().min(3).max(10).required(),
+      age: Joi.number().min(20).max(30).required(),
+      email: Joi.string().email({ tlds: { allw: ["com", "net"] } }).required(),
+      password: Joi.string().min(3).max(10).required(),
+    });
+    return schema.validate(user, { abortEarly: false });
+  }
 
   function getUserInfo(eventInfo) {
     //clone
@@ -18,9 +35,27 @@ const Register = () => {
     // console.log(myuser);
   }
 
+  function SendUserData() {
+    // let {data}=await  axios.post(" https://route-egypt-api.herokuapp.com/signup",user);
+    // console.log(data);
+    let valid = UserValidation();
+    if (valid.error) {
+      ///
+      setError(valid.error.details)
+    } else {
+      navigate("/login");
+    }
+  }
+
+  function submitData(eventInfo) {
+    eventInfo.preventDefault();
+    SendUserData();
+  }
   return (
     <>
-      <form>
+
+    {errorList.map((err,index)=><div key={index} className="alert alert-danger my-2">{err.message}</div>)}
+      <form onSubmit={submitData}>
         <label htmlFor="first-name" className="">
           First Name :
         </label>
@@ -76,7 +111,9 @@ const Register = () => {
           id="password"
         ></input>
 
-        <button className="btn btn-info">Register</button>
+        <button type="submit" className="btn btn-info">
+          Register
+        </button>
       </form>
     </>
   );

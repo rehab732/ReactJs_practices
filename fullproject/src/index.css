@@ -11,13 +11,22 @@ body{
   color: var(--font-color);
   font-family: var(--main-font);
 }
-
+.vote{
+  background-color: var(--light-bg);
+}
 a{
   color: var(--font-color);
   text-decoration: none;
 }
-
+.footer{
+  background-color: rgba(0, 0, 0, 0.025)
+}
+.bor{
+  height: 1px ;
+  background-color:#a8a8a83d ;
+}
 .my-input{
   background-color: transparent;
   border: solid 1px #a8a8a83d;
+  color: #fff;
 }
