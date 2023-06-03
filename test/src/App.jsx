@@ -6,8 +6,10 @@ import Parent from "./components/Parent/Parent";
 import NotFound from "./components/NotFound/NotFound";
 import Contacts from "./components/Contacts/Contacts";
 import Test from "./components/Test/Test";
-import Countercontextprovider, { Countercontext } from "./components/Context/CounterStore";
-
+// import Countercontextprovider, { Countercontext } from "./components/Context/CounterStore";
+import { Provider } from "react-redux";
+import store from "./components/Redux/Store";
+import SocialMedia from "./components/SocialMedia/SocialMedia";
 let routers=createBrowserRouter([
   {path:"/",element:<Layout/>,children:[
     {index:true,element:<Home/>},
@@ -15,6 +17,7 @@ let routers=createBrowserRouter([
     {path:"parent",element:<Parent/>},
     {path:"gall",element:<Contacts/>},
     {path:"test",element:<Test/>},
+    {path:"so",element:<SocialMedia/>},
     {path:"*",element:<NotFound/>},
 
 
@@ -26,10 +29,19 @@ export class App extends Component{
   render() {
     return (
       <>
-      <Countercontextprovider>
+      {/* context */}
+      {/* <Countercontextprovider>
 
       <RouterProvider router={routers}></RouterProvider>
       </Countercontextprovider>
+ */}
+
+ <Provider store={store}>
+
+      <RouterProvider router={routers}></RouterProvider>
+ </Provider>
+
+      
       {/* <div className="container">
         <div className="row">
           <div className="col-md-6">

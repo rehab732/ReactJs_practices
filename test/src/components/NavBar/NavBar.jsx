@@ -46,6 +46,11 @@ const NavBar = () => {
                   Use CallBack
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="so">
+                  Redux
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
