@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
 
-class About extends Component {
+import React, { useEffect, useRef, useState } from 'react';
+const About = () => {
+  const [count,setCount]=useState(0);
 
-state={
-  count:0
-}
+  let ref=useRef();
+  useEffect(()=>{ref.current.focus()})
+  // useEffect(()=>{ref.current=ref.current+1})
 
-changeCount=()=>{
-  this.setState({count:Math.random()});
-}
-
-  render() {
-    return (
-      <>
-        <h1 >About Component</h1>
-        <h3>Counter : {this.state.count}</h3>
-        <button className='btn btn-info' onClick={this.changeCount}>Change</button>
-      </>
-    );
-  }
+  return (
+    <>
+<h1>Counter : {count}</h1>
+<button className='btn btn-info' onClick={()=>setCount(count+1)}> Change</button>
+<input type='text' ref={ref}/>
+    </>
+  );
 }
 
 export default About;
